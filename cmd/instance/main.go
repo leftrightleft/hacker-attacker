@@ -26,8 +26,8 @@ func connectToSession(string) error {
 
 func prompt() string {
 	validate := func(input string) error {
-		okCommands := []string{"port-scanner", "port-scan", "ddos", "DDoS", "password cracker",
-			"password-cracker", "password crack", "exit", "quit"}
+		okCommands := []string{"port-scanner", "port-scan", "password cracker",
+			"password-cracker", "password crack", "virus maker", "virus-maker", "virus", "ddos", "DDoS", "exit", "quit"}
 
 		for _, v := range okCommands {
 			if input == v {
@@ -44,7 +44,6 @@ func prompt() string {
 	}
 
 	result, err := prompt.Run()
-	fmt.Println("Here's the result", result)
 	if err != nil {
 		fmt.Printf("Prompt failed %v\n", err)
 		return ""
@@ -54,30 +53,30 @@ func prompt() string {
 }
 
 func main() {
-	// var command string
 	myFigure := figure.NewFigure("HACKER-ATTACKER", "poison", true)
-	color.Cyan(myFigure.String())
+	color.Red(myFigure.String())
 
-	fmt.Println("\n\n\n\n\n\n\n")
+	fmt.Print("\n\n\n\n\n\n\n")
 
-	sessionID := getInput("Enter Session ID")
-	fmt.Printf("connecting to session id: %s \n", sessionID)
+	// TODO: Session management
+	// sessionID := getInput("Enter Session ID")
+	// fmt.Printf("connecting to session id: %s \n", sessionID)
 
 	for {
 		choice := prompt()
-		fmt.Printf("%v", choice)
-		switch choice {
-		case " port-scan":
-			PortScan(sessionID)
-		case "quit":
-			os.Exit(0)
-		default:
-			fmt.Println("unrecognized option")
 
+		// TODO: add a help option here
+		switch choice {
+		case "port-scan", "port-scanner":
+			PortScan("sessionID")
+		case "password-cracker", "password cracker", "password-crack":
+			PasswordCracker("sessionID")
+		case "virus maker", "virus-maker", "virus":
+			VirusMaker("sessionID")
+		case "quit", "exit":
+			os.Exit(0)
 		}
 
 	}
-	// command := getInput("Enter command")
-	// fmt.Println(command)
 
 }
