@@ -8,7 +8,6 @@ import (
 	"time"
 
 	"github.com/common-nighthawk/go-figure"
-	"github.com/fatih/color"
 )
 
 func readInput(prompt string) string {
@@ -36,13 +35,10 @@ WEBSITES THE HACKER IS VISITING
 		fmt.Println(w)
 	}
 	return
-
 }
 
 // VirusMaker simulates generating and installing a virus
-func VirusMaker(session string) {
-	red := color.New(color.FgRed).SprintFunc()
-	green := color.New(color.FgGreen).SprintFunc()
+func (c colors) VirusMaker(session string) {
 
 	fmt.Print("\n\n")
 	figure.NewFigure("Virus Maker", "", true).Print()
@@ -51,14 +47,14 @@ func VirusMaker(session string) {
 	ip := readInput("Enter Hacker IP Address")
 	_ = readInput("Enter Hacker Password")
 
-	fmt.Printf("Now generating virus for hacker IP address: %s ", red(ip))
+	fmt.Printf("Now generating virus for hacker IP address: %s ", c.red(ip))
 	//  TODO: Here we need to make a progress bar of some sort
 	time.Sleep(3 * time.Second)
-	fmt.Println(green("SUCCESS!"))
+	fmt.Println(c.green("SUCCESS!"))
 
 	answer := readInput("Would you like to install a virus on the hackers computer? [Y/N]")
 	if strings.ToLower(answer) == "y\n" {
-		fmt.Printf("Now installing virus for hacker IP address: %s ", red(ip))
+		fmt.Printf("Now installing virus for hacker IP address: %s ", c.red(ip))
 		fmt.Println("Please Wait")
 		t := 0
 		for ok := true; ok; ok = t != 5 {
@@ -67,7 +63,7 @@ func VirusMaker(session string) {
 			t++
 		}
 
-		fmt.Println(green("Success!"))
+		fmt.Println(c.green("Success!"))
 	} else {
 		return
 	}

@@ -8,7 +8,7 @@ import (
 )
 
 // PortScan simulates a port scanner
-func PortScan(session string) {
+func (c colors) PortScan(session string) {
 	// TODO: Display that software is out of date
 	fmt.Print("\n\n")
 	figure.NewFigure("Port Scanner", "", true).Print()
@@ -31,10 +31,10 @@ IDENTIFIED TARGETS
 
 TARGET	        PORT	INFO
 ======	        ====	====
-334.777.121.2	22	SSH Session
-334.777.121.2	80	HTTP
-334.777.121.2	443	HTTPS
-334.777.121.2	8080	MYSQL
-334.777.121.2	8088	Unknown
+334.777.121.2	23	Email
+334.777.121.2	80	Web Browser
+334.777.121.2	443	Web Browser
+334.777.121.2	8080	Instagram
+334.777.121.2	8088	SnapChat
 	`)
 }

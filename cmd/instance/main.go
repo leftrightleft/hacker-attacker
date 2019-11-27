@@ -52,11 +52,20 @@ func prompt() string {
 	return result
 }
 
+type colors struct {
+	red   func(a ...interface{}) string
+	green func(a ...interface{}) string
+}
+
 func main() {
 	myFigure := figure.NewFigure("HACKER-ATTACKER", "poison", true)
 	color.Red(myFigure.String())
-
 	fmt.Print("\n\n\n\n\n\n\n")
+
+	c := colors{
+		red:   color.New(color.FgRed).SprintFunc(),
+		green: color.New(color.FgGreen).SprintFunc(),
+	}
 
 	// TODO: Session management
 	// sessionID := getInput("Enter Session ID")
@@ -68,11 +77,11 @@ func main() {
 		// TODO: add a help option here
 		switch choice {
 		case "port-scan", "port-scanner":
-			PortScan("sessionID")
+			c.PortScan("sessionID")
 		case "password-cracker", "password cracker", "password-crack":
-			PasswordCracker("sessionID")
+			c.PasswordCracker("sessionID")
 		case "virus maker", "virus-maker", "virus":
-			VirusMaker("sessionID")
+			c.VirusMaker("sessionID")
 		case "quit", "exit":
 			os.Exit(0)
 		}

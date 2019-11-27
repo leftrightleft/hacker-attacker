@@ -8,7 +8,6 @@ import (
 	"time"
 
 	"github.com/common-nighthawk/go-figure"
-	"github.com/fatih/color"
 )
 
 func readLines(path string) ([]string, error) {
@@ -27,7 +26,7 @@ func readLines(path string) ([]string, error) {
 }
 
 // PasswordCracker simulates a PW cracker
-func PasswordCracker(session string) {
+func (c colors) PasswordCracker(session string) {
 	fmt.Print("\n\n")
 	figure.NewFigure("Password Cracker", "", true).Print()
 	fmt.Print("\n\n")
@@ -57,14 +56,11 @@ func PasswordCracker(session string) {
 	}
 
 	fmt.Print("\n\n++++++++++++++++   SUCCESS!   ++++++++++++++++\n\n")
-
-	red := color.New(color.FgRed).SprintFunc()
-
 	fmt.Printf(`
-	
+
 ==============================
 Cracked Password:  %s
 ==============================
 
-	`, red("password123"))
+	`, c.red("password123"))
 }
