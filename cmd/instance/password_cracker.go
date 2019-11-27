@@ -30,8 +30,16 @@ func (c colors) PasswordCracker(session string) {
 	fmt.Print("\n\n")
 	figure.NewFigure("Password Cracker", "", true).Print()
 	fmt.Print("\n\n")
+	Typer("Password-cracker is a tool that tries several passwords until it finds one that works.\n")
+	Typer("This tools works great if the password is easy to guess.\n\n")
+	_ = GetInput("Enter Hacker IP Address")
+	_ = GetInput("Enter Port Number")
 
-	fmt.Print("++++++++++++++++   INITIATING PASSWORD CRACKER   ++++++++++++++++\n\n")
+	fmt.Print("\n\n")
+	Typer("Starting Password Cracker")
+	Waiter(4)
+
+	fmt.Print("++++++++++++++++   NOW SCANNING   ++++++++++++++++\n\n")
 
 	t := 0
 	for ok := true; ok; ok = t != 5 {
@@ -49,18 +57,19 @@ func (c colors) PasswordCracker(session string) {
 	t = 0
 	for ok := true; ok; ok = t != 2 {
 		for _, p := range passwordList {
-			time.Sleep(10 * time.Millisecond)
+			time.Sleep(20 * time.Millisecond)
 			fmt.Println(p)
 		}
 		t++
 	}
 
-	fmt.Print("\n\n++++++++++++++++   SUCCESS!   ++++++++++++++++\n\n")
+	Typer("\nPassword Found")
+	Waiter(5)
 	fmt.Printf(`
 
 ==============================
 Cracked Password:  %s
 ==============================
 
-	`, c.red("password123"))
+	`, c.boldRed("password123"))
 }
