@@ -8,6 +8,7 @@ import (
 	"time"
 
 	tm "github.com/buger/goterm"
+	"github.com/common-nighthawk/go-figure"
 )
 
 func GetInput(prompt string) string {
@@ -49,6 +50,12 @@ func Waiter(duration int) {
 			fmt.Print("\n")
 		}
 	}
+}
+
+func PrintTitle(title string) {
+	fmt.Print("\n\n")
+	figure.NewFigure(title, "", true).Print()
+	fmt.Print("\n\n")
 }
 
 // func welcome() {
