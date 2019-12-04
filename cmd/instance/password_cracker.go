@@ -6,8 +6,6 @@ import (
 	"log"
 	"os"
 	"time"
-
-	"github.com/common-nighthawk/go-figure"
 )
 
 func readLines(path string) ([]string, error) {
@@ -27,9 +25,7 @@ func readLines(path string) ([]string, error) {
 
 // PasswordCracker simulates a PW cracker
 func (c colors) PasswordCracker(session string) {
-	fmt.Print("\n\n")
-	figure.NewFigure("Password Cracker", "", true).Print()
-	fmt.Print("\n\n")
+	PrintTitle("Password Cracker")
 	Typer("Password-cracker is a tool that tries several passwords until it finds one that works.\n")
 	Typer("This tools works great if the password is easy to guess.\n\n")
 	_ = GetInput("Enter Hacker IP Address")

@@ -3,16 +3,11 @@ package main
 import (
 	"fmt"
 	"time"
-
-	"github.com/common-nighthawk/go-figure"
 )
 
 // PortScan simulates a port scanner
 func (c colors) PortScan(session string) {
-	// TODO: Display that software is out of date
-	fmt.Print("\n\n")
-	figure.NewFigure("Port Scanner", "", true).Print()
-	fmt.Print("\n\n")
+	PrintTitle("Port Scanner")
 
 	Typer("Welcome to port-scanner.  Ports are similar to 'channels' on your computer.  The port scanner checks each of these 'channels' to see if there is an app running on that port that is out of date")
 	Waiter(4)
@@ -39,8 +34,8 @@ func (c colors) PortScan(session string) {
 FOUND PORTS
 ==================
 
-TARGET	        PORT	INFO
-======	        ====	====
+TARGET	PORT	INFO
+======	====	====
 %s	23	Email      %s 
 %s	80	Web Browser
 %s	443	Web Browser

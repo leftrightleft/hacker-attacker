@@ -4,8 +4,6 @@ import (
 	"fmt"
 	"strings"
 	"time"
-
-	"github.com/common-nighthawk/go-figure"
 )
 
 // func readInput(prompt string) string {
@@ -37,10 +35,7 @@ WEBSITES THE HACKER IS VISITING
 
 // VirusMaker simulates generating and installing a virus
 func (c colors) VirusMaker(session string) {
-
-	fmt.Print("\n\n")
-	figure.NewFigure("Virus Maker", "", true).Print()
-	fmt.Print("\n\n")
+	PrintTitle("Virus Maker")
 	Typer("Virus Maker generates and installs a virus on the hackers computer.\n")
 	Typer("Once the virus is installed, Virus Maker will print which websites the hacker is visiting.\n\n")
 	ip := GetInput("Enter Hacker IP Address")
