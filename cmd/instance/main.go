@@ -63,18 +63,19 @@ func main() {
 		green:        color.New(color.FgGreen).SprintFunc(),
 	}
 
-	Typer("Welcome to Hacker-Attacker")
-	Waiter(4)
-	fmt.Print("\n")
+	// Typer("Welcome to Hacker-Attacker")
+	// Waiter(4)
+	// fmt.Print("\n")
 
-	Typer("These are the commands you can use with Hacker-Attacker.  Remember, you can view this menu at any time by typing 'help'")
-	fmt.Print("\n\n")
+	// Typer("These are the commands you can use with Hacker-Attacker.  Remember, you can view this menu at any time by typing 'help'")
+	// fmt.Print("\n\n")
 
-	help()
-	fmt.Print("\n\n")
+	// help()
+	// fmt.Print("\n\n")
 
-	Typer("Let's get started")
-	Waiter(4)
+	// Typer("Let's get started")
+	// Waiter(4)
+
 	// TODO: Session management
 	// sessionID := getInput("Enter Session ID")
 	// fmt.Printf("connecting to session id: %s \n", sessionID)
@@ -82,16 +83,12 @@ func main() {
 	for {
 		choice := prompt()
 
-		// TODO: add a help option here
 		switch choice {
 		case "port-scan", "port-scanner":
 			tm.Clear()
 			tm.MoveCursor(0, 0)
 			tm.Flush()
 			c.PortScan("sessionID")
-			// myFigure := figure.NewFigure("HACKER-ATTACKER", "poison", true)
-			// color.Red(myFigure.String())
-			// fmt.Print("\n\n\n\n\n\n\n")
 		case "password-cracker", "password cracker", "password-crack":
 			tm.Clear()
 			tm.MoveCursor(0, 0)
@@ -102,6 +99,14 @@ func main() {
 			tm.MoveCursor(0, 0)
 			tm.Flush()
 			c.VirusMaker("sessionID")
+		case "ddos", "DDoS":
+			tm.Clear()
+			tm.MoveCursor(0, 0)
+			tm.Flush()
+			c.DDoS("sessionID")
+			tm.Clear()
+			tm.MoveCursor(0, 0)
+			tm.Flush()
 		case "help":
 			help()
 		case "quit", "exit":

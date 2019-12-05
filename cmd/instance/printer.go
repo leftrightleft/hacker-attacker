@@ -26,6 +26,7 @@ func help() {
 	fmt.Fprintf(totals, "%s\t%s\n", "port-scan", "Scan the hackers computer to find a vulnerable app")
 	fmt.Fprintf(totals, "%s\t%s\n", "virus-maker", "Create a virus then install it on the hackers computer")
 	fmt.Fprintf(totals, "%s\t%s\n", "password-cracker", "Find the hackers password")
+	fmt.Fprintf(totals, "%s\t%s\n", "ddos", "Execute a DDoS attack on a hacker")
 	tm.Println(totals)
 
 	tm.Flush()
